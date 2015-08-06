@@ -14,11 +14,11 @@ namespace HttpRouter
     // holds the set of resource ids
     private readonly IDictionary<int, string> _ids = new Dictionary<int, string>();
     // mathces any resource ids in the endpoint that are specified inside a set of curly braces {}
-    private static const string _resourceIdPattern = @"{(.+?)}";
+    private const string _resourceIdPattern = @"{(.+?)}";
     // the regex used to get resource ids out of this route's endpoint
     private static readonly Regex _resourceIdRegex = new Regex(_resourceIdPattern, RegexOptions.IgnoreCase);
     // the regex pattern used to get each part of the endpoint.
-    private static const string _resourceIdMatcher = @"([^/]*)";
+    private const string _resourceIdMatcher = @"([^/]*)";
 
     public Route(HttpMethods httpMethod, string endpoint, Action<RoutedHttpRequest, HttpListenerResponse> callback)
     {
@@ -52,7 +52,7 @@ namespace HttpRouter
       // split the endpoint into an array of parts
       var parts = endpoint.Trim('/').Split('/');
 
-      foreach(var part in parts)
+      foreach (var part in parts)
       {
         // append the endpoint part separator at the beginning of each part.
         pattern.Append("/");
@@ -60,11 +60,15 @@ namespace HttpRouter
         var match = _resourceIdRegex.Match(part);
         if (match.Success)
         {
+          // if this part of the enpoint is an identifier, append the 
+          // ([^/]*) regex pattern to pattern, and also store the 
+          // name of the param id
           pattern.Append(_resourceIdMatcher);
           _ids[resourceIdIndex++] = match.Groups[1].Value;
         }
         else
         {
+          // otherwise just store the current part ofthe endpoint
           pattern.Append(part);
         }
       }
@@ -73,6 +77,24 @@ namespace HttpRouter
       pattern.Append("$");
 
       return new Regex(pattern.ToString(), RegexOptions.IgnoreCase);
+    }
+
+    /// <summary>
+    /// Gets a dictionary of params from the route request.
+    /// </summary>
+    /// <param name="match">The successful <see cref="Regex"/> match for this <see cref="Route"/>.</param>
+    /// <returns>A dictionary of param ids to param values.</returns>
+    public IDictionary<string, object> GetParams(Match match)
+    {
+      var @params = new Dictionary<string, object>();
+      for (int paramId = 0; paramId < _ids.Count; paramId++)
+      {
+        // the param value offset is always 1 more than the param id
+        // because the first item in a Regex.Match.Group is always the entire string.
+        @params[_ids[paramId]] = match.Groups[paramId + 1].Value;
+      }
+
+      return @params;
     }
 
     /// <summary>

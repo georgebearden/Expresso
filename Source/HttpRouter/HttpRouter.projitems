@@ -9,7 +9,9 @@
     <Import_RootNamespace>HttpRouter</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)HttpMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Route.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoutedHttpRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Router.cs" />
   </ItemGroup>
 </Project>

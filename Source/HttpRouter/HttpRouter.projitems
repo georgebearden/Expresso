@@ -8,4 +8,8 @@
   <PropertyGroup Label="Configuration">
     <Import_RootNamespace>HttpRouter</Import_RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Route.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RoutedHttpRequest.cs" />
+  </ItemGroup>
 </Project>

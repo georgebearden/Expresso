@@ -1,6 +1,6 @@
-# HttpRouter
+# Expresso
 
-Inspiration for the HttpRouter library came from the [Express](http://expressjs.com/guide/routing.html) routing code.  It greatly simplifies creating a RESTful web-service in C#.  A simple example of using HttpRouter that maps the _/users_ endpoint of a url to a callback is
+Inspiration for the Expresso library came from the [Express](http://expressjs.com/guide/routing.html) routing code.  It greatly simplifies creating a RESTful web-service in C#.  A simple example of using Expresso that maps the _/users_ endpoint of a url to a callback is
 
 ```csharp
 var router = new Router();

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HttpRouter
+﻿namespace Expresso
 {
   /// <summary>
   /// An enumeration of the types  of Http methods available.

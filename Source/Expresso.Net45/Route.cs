@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace HttpRouter
+namespace Expresso
 {
   /// <summary>
   /// Routes a http request endpoint to callback.
@@ -14,11 +14,11 @@ namespace HttpRouter
     // holds the set of resource ids
     private readonly IDictionary<int, string> _ids = new Dictionary<int, string>();
     // mathces any resource ids in the endpoint that are specified inside a set of curly braces {}
-    private const string _resourceIdPattern = @"{(.+?)}";
+    private const string ResourceIdPattern = @"{(.+?)}";
     // the regex used to get resource ids out of this route's endpoint
-    private static readonly Regex _resourceIdRegex = new Regex(_resourceIdPattern, RegexOptions.IgnoreCase);
+    private static readonly Regex ResourceIdRegex = new Regex(ResourceIdPattern, RegexOptions.IgnoreCase);
     // the regex pattern used to get each part of the endpoint.
-    private const string _resourceIdMatcher = @"([^/]*)";
+    private const string ResourceIdMatcher = @"([^/]*)";
 
     public Route(HttpMethods httpMethod, string endpoint, Action<RoutedHttpRequest, HttpListenerResponse> callback)
     {
@@ -57,13 +57,13 @@ namespace HttpRouter
         // append the endpoint part separator at the beginning of each part.
         pattern.Append("/");
 
-        var match = _resourceIdRegex.Match(part);
+        var match = ResourceIdRegex.Match(part);
         if (match.Success)
         {
           // if this part of the enpoint is an identifier, append the 
           // ([^/]*) regex pattern to pattern, and also store the 
           // name of the param id
-          pattern.Append(_resourceIdMatcher);
+          pattern.Append(ResourceIdMatcher);
           _ids[resourceIdIndex++] = match.Groups[1].Value;
         }
         else

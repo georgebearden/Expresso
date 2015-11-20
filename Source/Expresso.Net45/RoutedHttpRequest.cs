@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Text;
 
-namespace HttpRouter
+namespace Expresso
 {
   /// <summary>
   /// Composes a <see cref="HttpListenerRequest"/> with a set of url path key/value pairs.

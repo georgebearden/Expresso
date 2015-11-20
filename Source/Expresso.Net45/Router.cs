@@ -15,7 +15,7 @@ namespace Expresso
       request = request.TrimEnd('/');
 
       // filter the routes to try by their http method type.
-      var routes = _routes.Where(route => String.Equals(route.HttpMethod.ToString(), httpContext.Request.HttpMethod, StringComparison.InvariantCultureIgnoreCase));
+      var routes = _routes.Where(route => string.Equals(route.HttpMethod.ToString(), httpContext.Request.HttpMethod, StringComparison.InvariantCultureIgnoreCase));
       foreach (var route in routes)
       {
         var match = route.Regex.Match(request);

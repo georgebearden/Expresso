@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{D61C8926-6C34-48EF-905E-C08A4C2E9504}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4E2C38BD-5763-465B-9685-3ACAE48D1B7F}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HttpRouter", "Source\HttpRouter\HttpRouter.shproj", "{90594282-DB07-4AED-BCDD-610D27EAD5DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpRouter.Net45", "Source\HttpRouter.Net45\HttpRouter.Net45.csproj", "{3CCB6378-51BC-4383-A641-2289C017B3E8}"
 EndProject
@@ -16,8 +14,6 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Source\HttpRouter\HttpRouter.projitems*{2829ee51-0af8-4bc7-be87-03866cee8508}*SharedItemsImports = 4
-		Source\HttpRouter\HttpRouter.projitems*{90594282-db07-4aed-bcdd-610d27ead5da}*SharedItemsImports = 13
-		Source\HttpRouter\HttpRouter.projitems*{3ccb6378-51bc-4383-a641-2289c017b3e8}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,7 +51,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{90594282-DB07-4AED-BCDD-610D27EAD5DA} = {D61C8926-6C34-48EF-905E-C08A4C2E9504}
 		{3CCB6378-51BC-4383-A641-2289C017B3E8} = {D61C8926-6C34-48EF-905E-C08A4C2E9504}
 		{2829EE51-0AF8-4BC7-BE87-03866CEE8508} = {4E2C38BD-5763-465B-9685-3ACAE48D1B7F}
 	EndGlobalSection

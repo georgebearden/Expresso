@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4E2C38BD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expresso.Net45", "Source\Expresso.Net45\Expresso.Net45.csproj", "{3CCB6378-51BC-4383-A641-2289C017B3E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunnerTests", "Tests\RunnerTests\RunnerTests.csproj", "{2829EE51-0AF8-4BC7-BE87-03866CEE8508}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expresso.Net45.Tests", "Tests\Expresso.Net45.Tests\Expresso.Net45.Tests.csproj", "{2829EE51-0AF8-4BC7-BE87-03866CEE8508}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

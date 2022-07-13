@@ -26,3 +26,5 @@ router.Route(HttpMethods.Get, "/users/{userId}", (req, res) =>
 
 ### Next steps
 Adding support for middleware.
+
+### New Section
